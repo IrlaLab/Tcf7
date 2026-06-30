@@ -37,8 +37,10 @@ These libraries correspond to two experimental conditions representing different
 
 Each dataset follows the naming convention:
 
+```
 [EXPERIMENT]_[CONDITION]_[STRAND]
 
+```
 where:
 
  * EXPERIMENT = GEX_TEC
