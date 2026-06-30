@@ -8,7 +8,9 @@
 Romain Trubert1, Adrien Meraud1, Jérémy Santamaria1, Ismaël Malki1, Raphaël Corre1, Matthieu Giraud2, Arnauld Sergé3, Magali Irla1* 
 
 1 Center of Immunology of Marseille Luminy (CIML), INSERM, CNRS, Aix-Marseille-University, 13288, Marseille, France.
+
 2 Nantes Université, INSERM, Center for Research in Transplantation and Translational Immunology, UMR 1064, Nantes, France.
+
 3 Laboratoire adhésion inflammation (LAI),Turing Centre for Living Systems, CNRS, INSERM, Aix-Marseille University, 13288, Marseille, France.
 
 & Corresponding author: Magali Irla (Magali.Irla@inserm.fr)
