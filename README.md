@@ -39,7 +39,6 @@ Each dataset follows the naming convention:
 
 ```
 [EXPERIMENT]_[CONDITION]_[STRAND]
-
 ```
 where:
 
