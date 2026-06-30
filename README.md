@@ -25,7 +25,7 @@ The transcription factor Tcf7 (T cell factor 7) is essential for T-cell developm
 ---
 
 ## Overview
-This repository provides all scripts and supporting resources required to reproduce the analyses presented in the manuscript. It includes the analysis code, container definitions, and detailed instructions for reproducing each computational step. Processed datasets, generated outputs, and pre-built Docker and Singularity images are distributed through Zenodo.
+This repository provides all scripts and supporting resources required to reproduce the single-cell analyses presented in the manuscript. It includes the analysis code, container definitions, and detailed instructions for reproducing each computational step. Processed datasets, generated outputs, and pre-built Docker and Singularity images are distributed through Zenodo.
 
 ---
 
