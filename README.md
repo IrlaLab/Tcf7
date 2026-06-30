@@ -2,7 +2,7 @@
 
 ## Article information
 
-**Title:** HTcf7 controls thymic function by regulating core transcriptional programs in thymic epithelial cells
+**Title:** Tcf7 controls thymic function by regulating core transcriptional programs in thymic epithelial cells
 
 **Authors:** 
 Romain Trubert1, Adrien Meraud1, Jérémy Santamaria1, Ismaël Malki1, Raphaël Corre1, Matthieu Giraud2, Arnauld Sergé3, Magali Irla1* 
@@ -22,54 +22,52 @@ The transcription factor Tcf7 (T cell factor 7) is essential for T-cell developm
 
 ---
 
-## Goal of the GitHub
-This GitHub project contains the instructions and materials to reproduce the analyses reported in the article (and more).
-Source code (scripts and dockerfile) are available in the GitHub repository. Processed data, analysis results, and built Docker/Singularity images are available for download from Zenodo. Instructions to reproduce the analyses are provided below.
+## Overview
+This repository provides all scripts and supporting resources required to reproduce the analyses presented in the manuscript. It includes the analysis code, container definitions, and detailed instructions for reproducing each computational step. Processed datasets, generated outputs, and pre-built Docker and Singularity images are distributed through Zenodo.
 
 ---
 
 ## Description of the datasets
 
-As described in the article, there are 2 libraries in this study, each of which has been sequenced in paired-end , generating 4 files.
+The study includes two sequencing libraries generated from paired-end sequencing, resulting in four FASTQ files.
 
-The libraries are the result of the composition of two genotypes (WT and Tcf7KO).
+These libraries correspond to two experimental conditions representing different genotypes: WT and Tcf7KO.
 
-A dataset name contains the information required to identify it uniquely as follows:
-```
+Each dataset follows the naming convention:
+
 [EXPERIMENT]_[CONDITION]_[STRAND]
-```
 
 where:
 
- * EXPERIMENT is GEX_TEC
- * CONDITION is one of "WT" and "TCF7KO"
- * STRAND is one of R1 or R2
+ * EXPERIMENT = GEX_TEC
+ * CONDITION = WT or TCF7KO
+ * STRAND = R1 (Read 1) or R2 (Read 2)
 
 
-| Dataset name | title | genotype	| description
-| :--------------- |:--------------- |:-------|:-------|
-| GEX_TEC_TCF7KO_S2_R1_001	| Mus Musculus C57BL/6 J TEC Tcf7KO forward reads (mouse age: 6 weeks)
-| GEX_TEC_TCF7KO_S2_R1_001	| Mus Musculus C57BL/6 J TEC Tcf7KO reverse reads (mouse age: 6 weeks)
-| GEX_TEC_TCF7WT_S1_R1_001	| Mus Musculus C57BL/6 J TEC Control forward reads (mouse age: 6 weeks)
-| GEX_TEC_TCF7WT_S1_R2_001	| Mus Musculus C57BL/6 J TEC Control reverse reads (mouse age: 6 weeks)
+| Dataset name | title | genotype	| 
+| :--------------- |:--------------- |:-------|
+| GEX_TEC_TCF7KO_S2_R1_001	| Mus Musculus C57BL/6 J TEC Tcf7KO forward reads (mouse age: 6 weeks) | Tcf7KO
+| GEX_TEC_TCF7KO_S2_R1_001	| Mus Musculus C57BL/6 J TEC Tcf7KO reverse reads (mouse age: 6 weeks) | Tcf7KO
+| GEX_TEC_TCF7WT_S1_R1_001	| Mus Musculus C57BL/6 J TEC Control forward reads (mouse age: 6 weeks) | WT
+| GEX_TEC_TCF7WT_S1_R2_001	| Mus Musculus C57BL/6 J TEC Control reverse reads (mouse age: 6 weeks) | WT
 
 ---
 
 ## Description of the main analysis
 
-During the analysis process of the datasets, several steps were applied to combine and merge the datasets. Here is a quick description.
+The computational workflow is organized into two successive stages.
 
 ### First step : Individual dataset analysis
 
-All the datasets were analyzed separately to validate their quality and get a first insight into the cell heterogeneity. 
+Each dataset is first processed independently to assess sequencing quality and characterize cellular heterogeneity prior to integration.
 
-The analysis code and analysis results for this step are in folders with the dataset name.
+Scripts and corresponding outputs for this stage are stored within the folder associated with each dataset.
 
 ### Second step : Merge all datasets
 
-All the datasets were merged together to compare condition effects.
+After quality assessment, all datasets are combined into a single integrated analysis to enable comparisons between experimental conditions.
 
-The analysis code and analysis results for this step are in a folder called Integrated.
+The scripts and outputs corresponding to this integrated analysis are available in the Integrated directory.
 
 ---
 
@@ -77,7 +75,7 @@ The analysis code and analysis results for this step are in a folder called Inte
 
 ### Folders of the datasets
 
-The project is organized by dataset. Each dataset has its own folder. Due to the analysis steps described above, when downloading the code and data (see below), you will obtain several sub-folders with names as below:
+The repository is structured around individual datasets. Each dataset has its own directory containing the analysis resources. After downloading both the repository and associated data, the project hierarchy should resemble the following:
 
 ```
 .
@@ -89,10 +87,9 @@ The project is organized by dataset. Each dataset has its own folder. Due to the
 
 ### Folders inside the datasets
 
-Each dataset folder contains an ordered series of sub-folders. Theses sub-folders are organized in two sets : the code and the data and analysis results.
+Each dataset directory contains two complementary groups of files: one dedicated to the analysis code and another containing the generated outputs.
 
- * From the GitHub, you will be able to download the code set of files. It contains the analysis code (__03_Scripts__) and the Docker container definition file (__02_Container__). Some dataset also contains a Snakemake workflow definition (__04_Worflow__). For instance : 
-
+ * The GitHub repository provides the source code, including the scripts (03_Scripts) and Docker definition files (02_Container).
 ```
 .
 └── Tcf7
@@ -101,7 +98,7 @@ Each dataset folder contains an ordered series of sub-folders. Theses sub-folder
     │   ├── 03_Scripts
 ```
 
- * From Zenodo, you will be able to download the data and analysis results set of files. It contains the compiled docker images (_02_Container__) and the analysis results (05_Output)
+ * The Zenodo archive contains the processed data, analysis outputs, and pre-built container images.
  
 ```
 .
@@ -116,25 +113,25 @@ Each dataset folder contains an ordered series of sub-folders. Theses sub-folder
 
 ## Prepare the environments
 
-In order to prepare the environment for analysis execution, it is required to:
+Before running the analyses, a few setup steps are required:
 
-- Clone the GitHub repository and set the WORKING_DIR environment variable
-- Download the data
-- Install the Docker environment to run the analysis interactively
+* clone the GitHub repository and define the WORKING_DIR environment variable;
+* download the datasets;
+* install Docker to execute the analyses within the provided containerized environment.
 
-Below you will find detailed instruction for each of these steps.
+Detailed instructions are provided below.
 
 ---
 
 #### Clone the GitHub repository
 
-Use you favorite method to clone this repository in a chosen folder. This will create a folder **Tcf7** with all the source code.
+Clone the repository into the directory of your choice using your preferred Git client. This will create a local **Tcf7** directory containing all analysis scripts.
 
 #### Set the Working Dir variable
 
-Then, you must set an environment variable called **WORKING_DIR** with a value set to the path to this folder.
+Create an environment variable named **WORKING_DIR** pointing to the location of the cloned repository.
 
-For instance, if you have chosen to clone the Git repository in __"/home/malki/workspace"__, then the **WORKING_DIR** variable will be set to __"/home/malki/workspace/Tcf7"__
+For example, if the repository was cloned into **/home/malki/workspace**, the variable should be defined as:
 
 **On linux:**
 
@@ -144,8 +141,9 @@ For instance, if you have chosen to clone the Git repository in __"/home/malki/w
 
 #### Add your working dir in the code
 
-The code uses variables that are stored in different "parameters" file. One important variable is the PATH_PROJECT which indicate to the code where your project is stored.
-You have to modify this variable in the code to reflect your project setup. Each dataset has a file called **analysisParams.R** in the subfolder **03_Scripts**
+Several parameter files contain project-specific settings. In particular, each dataset includes a **projectParams.R** file located in **03_Scripts**, where the **PATH_PROJECT** variable specifies the project location.
+
+Locate this file for each dataset and update **PATH_PROJECT** so that it matches your local **WORKING_DIR**.
 
 For instance:
 
@@ -154,13 +152,15 @@ For instance:
     │
     ├── Tcf7WT_sc
     │   │
-    │   └── 03_Script/analysisParams.R
+    │   └── 03_Script/projectParams.R
 
 ```
 
 Edit those files and in each of them locate the line defining the **PATH_PROJECT** variable and change its value to the same value as the **WORKING_DIR** variable you defined before. Then save the files.
 
 ```
+for example :
+
 PATH_PROJECT = "/home/malki/workspace/Tcf7"
 ```
 
@@ -168,18 +168,18 @@ PATH_PROJECT = "/home/malki/workspace/Tcf7"
 
 ### Download the data
 
-The raw FASTQ files are available on GEO. The rest of the data are available on Zenodo :
+Raw FASTQ sequencing files are publicly available from GEO, whereas processed datasets and analysis outputs can be obtained from Zenodo.
 
 - Tcf7_All_samples (lien zenodo) : All samples
 
 
-Download the folders into WORKING_DIR, in order to keep the correct folder structure.
+To preserve the expected directory structure, extract the downloaded files directly into **WORKING_DIR**.
 
 #### Download the analysis result
 
-The analysis results can be found in the folder called "05_Output" in each dataset folder. These subfolders contains a series of subfolders, one for each analysis step. The same subfolders can be found in the 03_Scripts subfolders, since the analysis code and the analysis output have a bijective relation. 
+Analysis results are stored in the **05_Output** directory of each dataset. These folders mirror the organization of the analysis scripts, allowing a direct correspondence between code and generated results.
 
-**Note :** the analysis results contain also the Cell Ranger pre-processing results (including the count matrix and the bam files).
+**Note :** The outputs also include Cell Ranger preprocessing files such as gene-count matrices and BAM files.
 
 For instance:
 
@@ -195,7 +195,9 @@ For instance:
 
 #### Download the container images
 
-The container images (tar.gz file for Docker and sif file for Singularity) can be found in the 02_Container sub-folder of each dataset folder. Singulairty images can be use directly while docker images must be loaded on your system (see below)
+Docker archives (.tar.gz) and Singularity images (.sif) are available in the **02_Container** directory of each dataset.
+
+Singularity images can be used immediately, whereas Docker archives must first be imported into your local Docker installation.
 
 ---
 
@@ -203,12 +205,14 @@ The container images (tar.gz file for Docker and sif file for Singularity) can b
 
 #### Install Docker
 
-You need install Docker on your system to take advantage of interactive analysis environment with Rstudio, follow the instructions here : https://docs.docker.com/get-docker/
+To execute the analyses interactively through RStudio, install Docker by following the official installation guide:
+
+https://docs.docker.com/get-docker/
 
 
 #### Load the images
 
-Once done, locate the tar.gz files of the docker images and use the following command
+Once done, load the downloaded image using:
 
 ```
 docker load -i <image_name>.tar.gz
@@ -218,7 +222,7 @@ docker load -i <image_name>.tar.gz
 
 If you have loaded the docker images (see above), you can use Rstudio in Docker to run the analysis individually.
 
-To start a docker container, use the following command:
+Launch the container with:
 
 ```
 docker run -d -p 8787:8787 -v /$WORKING_DIR:/$WORKING_DIR -e PASSWORD=<PASSWORD> -e USER=$(whoami) -e USERID=$(id -u) -e GROUPID=$(id -g)  <IMAGE_NAME>
@@ -229,8 +233,13 @@ where:
 * <PASSWORD> is a simple string you will use as password to login into Rstudio
 * <IMAGE_NAME> is the Docker image name to run
 
-One started, you can open an internet browser and use the URL https://127.0.0.1:8787.
+Once the container is running, open a web browser and connect to:
 
-At the login prompt, enter the name of the user session you are connected with and the password you type in place of <PASSWORD>. You are now in a Rstudio environment and the container is able to connect to the **WORKING_DIR**
-of your system. Inside you will find the project files. To tun the analysis, look at the scripts "launch_report.R" that is the main entry point to run the analysis.
+https://127.0.0.1:8787
+
+Authenticate using your Linux username together with the password specified above.
+
+The RStudio session will have direct access to the mounted **WORKING_DIR** , allowing you to browse the project files and execute the analyses.
+
+The main entry point of each workflow is the **launch_report.R** script.
 
