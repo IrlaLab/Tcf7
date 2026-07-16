@@ -219,7 +219,7 @@ Once done, you may obtain the following subfolder structure, each of them contai
 
 #### Download the container images
 
-Docker archives (.tar.gz) is available in the **02_Container** directory of each dataset.
+Docker archives (.tar.gz) are available in the **02_Container** directory of each dataset.
 
 Docker archives must first be imported into your local Docker installation.
 
