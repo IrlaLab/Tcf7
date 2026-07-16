@@ -185,8 +185,6 @@ To preserve the expected directory structure, extract the downloaded files direc
 To download and uncompress the data, use the following code:
 
 
-10.5281/zenodo.21217512
-
 **On linux:**
 
 ```
