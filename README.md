@@ -49,10 +49,11 @@ where:
 
 | Dataset name | title | genotype	| 
 | :--------------- |:--------------- |:-------|
-| GEX_TEC_TCF7KO_S2_R1_001	| Mus Musculus C57BL/6 J TEC Tcf7KO forward reads (mouse age: 6 weeks) | Tcf7KO
-| GEX_TEC_TCF7KO_S2_R1_001	| Mus Musculus C57BL/6 J TEC Tcf7KO reverse reads (mouse age: 6 weeks) | Tcf7KO
-| GEX_TEC_TCF7WT_S1_R1_001	| Mus Musculus C57BL/6 J TEC Control forward reads (mouse age: 6 weeks) | WT
-| GEX_TEC_TCF7WT_S1_R2_001	| Mus Musculus C57BL/6 J TEC Control reverse reads (mouse age: 6 weeks) | WT
+| GEX_TEC_TCF7WT_S1_R1_001	| Mus Musculus C57BL/6J TEC Control forward reads (mouse age: 6 weeks) | WT
+| GEX_TEC_TCF7WT_S1_R2_001	| Mus Musculus C57BL/6J TEC Control reverse reads (mouse age: 6 weeks) | WT
+| GEX_TEC_TCF7KO_S2_R1_001	| Mus Musculus C57BL/6J TEC Tcf7KO forward reads (mouse age: 6 weeks) | Tcf7KO
+| GEX_TEC_TCF7KO_S2_R1_001	| Mus Musculus C57BL/6J TEC Tcf7KO reverse reads (mouse age: 6 weeks) | Tcf7KO
+
 
 ---
 
