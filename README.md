@@ -101,14 +101,16 @@ Each dataset directory contains two complementary groups of files: one dedicated
     │   ├── 03_Scripts
 ```
 
- * The Zenodo archive contains the processed data, analysis outputs, and pre-built container images.
+ * The Zenodo archive contains the rawdata ,pre-built container images, processed data and analysis outputs.
  
 ```
 .
 └── Tcf7
     ├── Tcf7WT_sc
+    │   ├── 00_RawData
     │   ├── 02_Container
     │   ├── 05_Output
+
 ```
 
 ---
@@ -173,28 +175,47 @@ PATH_PROJECT = "/home/malki/workspace/Tcf7"
 
 Raw FASTQ sequencing files are publicly available from GEO, whereas processed datasets and analysis outputs can be obtained from Zenodo.
 
-- Tcf7_All_samples (lien zenodo) : All samples
-
+- Tcf7_WT_sc (lien zenodo) : contains the rawdata , the result of Cell Ranger count analysis and the processed object for the WT sample
+- Tcf7_KO_sc (lien zenodo) : contains the rawdata , the result of Cell Ranger count analysis and the processed object for the KO sample
+- Tcf7_Integrated [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21395640.svg)](https://doi.org/10.5281/zenodo.21395640) : outputs and processed object of the final analysis after integration
 
 To preserve the expected directory structure, extract the downloaded files directly into **WORKING_DIR**.
 
-#### Download the analysis result
+To download and uncompress the data, use the following code:
 
-Analysis results are stored in the **05_Output** directory of each dataset. These folders mirror the organization of the analysis scripts, allowing a direct correspondence between code and generated results.
+**On linux:**
 
-**Note :** The outputs also include Cell Ranger preprocessing files such as gene-count matrices and BAM files.
+```
+    cd $WORKING_DIR
+    wget https://zenodo.org/record/21217512/files/Tcf7_WT_sc.tar.gz -O Tcf7_WT_sc.tar.gz
+    tar zxvf Tcf7_WT_sc.tar.gz
+    
+    wget https://zenodo.org/record/21395547/files/Tcf7_KO_sc.tar.gz -O Tcf7_KO_sc.tar.gz
+    tar zxvf Tcf7_KO_sc.tar.gz
 
-For instance:
+    wget https://zenodo.org/record/21395640/files/Tcf7_Integrated.tar.gz -O Tcf7_Integrated.tar.gz
+    tar zxvf Tcf7_Integrated.tar.gz
+```
+ 
+Once done, you may obtain the following subfolder structure, each of them containing several files.
 
 ```
     Tcf7
-    │
     ├── Tcf7WT_sc
-        └── 03_Script
-            ├── 00_CellRanger
-            └── 01a_GlobalHeterogeneity
+    │   ├── 00_RawData
+    │   ├── 02_Container
+    │   └── 05_Output
+    ├── Tcf7KO_sc
+    │   ├── 00_RawData
+    │   ├── 02_Container
+    │   └── 05_Output
+    └── Tcf7_Integrated
+        ├── 02_Container
+        └── 05_Output
 
 ```
+
+--- 
 
 #### Download the container images
 
