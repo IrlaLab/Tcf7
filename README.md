@@ -176,13 +176,16 @@ PATH_PROJECT = "/home/malki/workspace/Tcf7"
 
 Raw FASTQ sequencing files are publicly available from GEO, whereas processed datasets and analysis outputs can be obtained from Zenodo.
 
-- Tcf7_WT_sc (lien zenodo) : contains the rawdata , the result of Cell Ranger count analysis and the processed object for the WT sample
-- Tcf7_KO_sc (lien zenodo) : contains the rawdata , the result of Cell Ranger count analysis and the processed object for the KO sample
+- Tcf7_WT_sc [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21217512.svg)](https://doi.org/10.5281/zenodo.21217512) : contains the rawdata , the result of Cell Ranger count analysis and the processed object for the WT sample
+- Tcf7_KO_sc [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21395547.svg)](https://doi.org/10.5281/zenodo.21395547) : contains the rawdata , the result of Cell Ranger count analysis and the processed object for the KO sample
 - Tcf7_Integrated [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21395640.svg)](https://doi.org/10.5281/zenodo.21395640) : outputs and processed object of the final analysis after integration
 
 To preserve the expected directory structure, extract the downloaded files directly into **WORKING_DIR**.
 
 To download and uncompress the data, use the following code:
+
+
+10.5281/zenodo.21217512
 
 **On linux:**
 
